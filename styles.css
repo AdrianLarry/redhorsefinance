@@ -1,0 +1,271 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Un contenedor principal que envuelve el contenido y el footer */
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* Encabezado */
+header {
+    width: 100%;
+    padding: 5px;
+    background-color: #140B0C;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-icon {
+    width: 180px;
+    height: 180px;
+}
+
+/* Iconos de idioma */
+.language-icons {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+.language-icons img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+/* Contenedores */
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Botón */
+.button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(45deg, #ff4d4d, #b30000);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.button:hover {
+    background: linear-gradient(45deg, #b30000, #ff4d4d);
+}
+
+.result {
+    font-weight: bold;
+    color: #ff4d4d; /* Color del texto */
+    background-color: #ffe6e6; /* Fondo suave */
+    border: 1px solid #ff4d4d; /* Borde del mismo color que el texto */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 15px; /* Espacio interno */
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centrado del texto */
+    font-size: 1.2em; /* Tamaño del texto */
+    transition: transform 0.3s ease; /* Animación para darle un efecto visual */
+}
+
+.result:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
+
+/* Pie de página */
+footer {
+    width: 100%;
+    background-color: #140B0C;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    color: #b30000;
+    text-decoration: underline;
+}
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.2em;
+            }
+            h2 {
+                font-size: 1em;
+            }
+            .language-icons img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .language-icons {
+                flex-direction: column;
+                align-items: center; /* Opcional: centra los iconos en el eje horizontal */
+            }
+            .footer-links {
+            flex-direction: column;
+            gap: 5px;
+            }
+        }
+
+/* Contenedor de selección de herramientas */
+.select-container {
+    width: auto;
+    display: flex;
+    flex-direction: column; /* Organiza en columna */
+    align-items: left; /* Centra horizontalmente */
+    gap: 5px; /* Espacio entre el título y el select */
+    margin: 10px;
+}
+
+.select-container h1 {
+    margin: 0; /* Elimina márgenes del h1 */
+    font-size: 1.2em; /* Ajusta el tamaño del título si es necesario */
+    text-shadow: 2px 2px 5px #000, 0 0 10px red, 0 0 20px red;
+}
+
+.select-container select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+/* Contenedor de noticias */
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.news-item {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.tool-container {
+    display: none;
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tool-container.visible {
+    display: block;
+}
+
+
+body, main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer {
+    width: 100%;
+    background-color: #140B0C;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
+}
+
+/* Animación de rotación con espera */
+@keyframes rotateIcon {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(360deg);
+    }
+    100% {
+        transform: rotateY(360deg); /* Mantiene la rotación final durante el tiempo de espera */
+    }
+}
+
+/* Aplica la animación al ícono */
+.header-icon {
+    animation: rotateIcon 10s linear infinite; /* 10s para rotar + 10s de espera */
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid #f33434;
+    margin: 20px 0;
+}

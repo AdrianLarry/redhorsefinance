@@ -3,177 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcula el Costo Financiero</title>
-    <style>
-        /* Reset básico */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f0f0f0;
-            padding: 0px;
-        }
-
-        header {
-            width: 100%;
-            padding: 10px;
-            background-color: #140B0C;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .title-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        header img {
-            width: 180px;
-            height: 180px;
-        }
-
-        h1 {
-            font-size: 4.5em;
-            margin: 0;
-            text-shadow: 2px 2px 5px #000, 0 0 10px red, 0 0 20px red;
-        }
-
-        .language-icons {
-            display: flex;
-            gap: 10px;
-            padding: 5px;
-        }
-
-        .language-icons img {
-            width: 25px;
-            height: 25px;
-            cursor: pointer;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 700px;
-            margin: 20px auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .button {
-            width: 100%;
-            padding: 10px;
-            background: linear-gradient(45deg, #ff4d4d, #b30000);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background: linear-gradient(45deg, #b30000, #ff4d4d);
-        }
-
-        .result {
-            font-weight: bold;
-            color: #ff4d4d;
-            margin-top: 10px;
-        }
-
-        footer {
-    width: 100%;
-    background-color: #140B0C;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-    font-size: 0.9em;
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.footer-links a {
-    color: #ff4d4d;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-links a:hover {
-    color: #b30000;
-    text-decoration: underline;
-}
-
-/* Responsivo: alineación vertical de los enlaces en pantallas pequeñas */
-@media (max-width: 600px) {
-    .footer-links {
-        flex-direction: column;
-        gap: 5px;
-    }
-}
-
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.2em;
-            }
-            h2 {
-                font-size: 1em;
-            }
-            .language-icons img {
-                width: 20px;
-                height: 20px;
-            }
-
-            .language-icons {
-                flex-direction: column;
-                align-items: center; /* Opcional: centra los iconos en el eje horizontal */
-            }
-        }
-    </style>
+    <title>Herramientas Financieras Útiles</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<div class="main-container">
 <header>
     <div class="title-container">
-        <img src="img/icon.png" alt="Icono Financiero"/>
-        <h1 id="title">Calcula el Costo Financiero</h1>
+        <a href="index.html">
+            <img src="img/icon.png" alt="Icono Financiero" class="header-icon">
+        </a>
+    </div>
+    
+    <div class="select-container">
+        <h1 id="main-title">Herramientas Financieras</h1>
+        <select id="toolSelect" onchange="showTool()">
+            <option value="">Selecciona</option>
+            <option id="cf" value="costoFinanciero">Calcula el Costo Financiero</option>
+            <option id="ia" value="indiceAnualizado">Calcula un Indice Anualizado</option>
+        </select>
     </div>
     <div class="language-icons">
         <img src="https://img.icons8.com/color/48/spain.png" alt="Español" onclick="setLanguage('es')">
@@ -182,43 +31,73 @@
     </div>
 </header>
 
-<div class="container">
-    <h2 id="comprador-section">Sección para el Comprador</h2>
-    <label for="productoCosto" id="producto-label">Costo del Producto ($)</label>
-    <input type="number" id="productoCosto" placeholder="Ej: 50000" />
+<main>
+    <!-- Sección de Noticias -->
+    <div id="newsSection" class="news-container">
+        <h2 id="news-title">Últimas Noticias Financieras</h2>
+        <div class="news-item">
+            <h3>Título de la Noticia 1</h3>
+            <p>Descripción breve de la noticia 1. Actualizaciones del mercado y economía global.</p>
+        </div>
+        <div class="news-item">
+            <h3>Título de la Noticia 2</h3>
+            <p>Descripción breve de la noticia 2. Análisis financiero sobre inversiones recientes.</p>
+        </div>
+        <div class="news-item">
+            <h3>Título de la Noticia 3</h3>
+            <p>Descripción breve de la noticia 3. Cambios en la política monetaria y su impacto.</p>
+        </div>
+    </div>
 
-    <label for="cuotasCantidad" id="cuotas-label">Cantidad de Cuotas</label>
-    <input type="number" id="cuotasCantidad" placeholder="Ej: 3" />
+    <!-- Contenedor de la herramienta de Costo Financiero -->
+    <div class="tool-container" id="costoFinanciero" style="visibility: visible;">
+        <h2 id="comprador-section">Sección para el Comprador</h2>
+        <label for="productoCosto" id="producto-label">Costo del Producto ($)</label>
+        <input type="number" id="productoCosto" placeholder="Ej: 50000" />
 
-    <label for="cuotaValor" id="valor-cuota-label">Valor de la Cuota ($)</label>
-    <input type="number" id="cuotaValor" placeholder="Ej: 18000" />
+        <label for="cuotasCantidad" id="cuotas-label">Cantidad de Cuotas</label>
+        <input type="number" id="cuotasCantidad" placeholder="Ej: 3" />
 
-    <button class="button" onclick="calcularCFT()" id="calcular-cft-button">Calcular CFT</button>
-    <div id="cftResultado" class="result"></div>
-</div>
+        <label for="cuotaValor" id="valor-cuota-label">Valor de la Cuota ($)</label>
+        <input type="number" id="cuotaValor" placeholder="Ej: 18000" />
 
-<div class="container">
-    <h2 id="vendedor-section">Sección para el Vendedor</h2>
-    <label for="precioProducto" id="precio-label">Precio del Producto ($)</label>
-    <input type="number" id="precioProducto" placeholder="Ej: 50000" />
+        <button class="button" onclick="calcularCFT()" id="calcular-cft-button">Calcular CFT</button>
+        <div id="cftResultado" class="result"></div>
+        <br>
+        <hr class="divider">
+        <br>
+        <h2 id="vendedor-section">Sección para el Vendedor</h2>
+        <label for="precioProducto" id="precio-label">Precio del Producto ($)</label>
+        <input type="number" id="precioProducto" placeholder="Ej: 50000" />
 
-    <label for="tasaInteres" id="tasa-label">Tasa de Interés Anual (%)</label>
-    <input type="number" id="tasaInteres" placeholder="Ej: 20" />
+        <label for="tasaInteres" id="tasa-label">Tasa de Interés Anual (%)</label>
+        <input type="number" id="tasaInteres" placeholder="Ej: 20" />
 
-    <label for="cuotasDisponibles" id="cuotas-disponibles-label">Cantidad de Cuotas</label>
-    <select id="cuotasDisponibles">
-        <option value="1">1 cuota</option>
-        <option value="2">2 cuotas</option>
-        <option value="3">3 cuotas</option>
-        <option value="6">6 cuotas</option>
-        <option value="9">9 cuotas</option>
-        <option value="12">12 cuotas</option>
-        <option value="18">18 cuotas</option>
-    </select>
+        <label for="cuotasDisponibles" id="cuotas-disponibles-label">Cantidad de Cuotas</label>
+        <select id="cuotasDisponibles">
+            <option value="1">1 cuota</option>
+            <option value="2">2 cuotas</option>
+            <option value="3">3 cuotas</option>
+            <option value="6">6 cuotas</option>
+            <option value="9">9 cuotas</option>
+            <option value="12">12 cuotas</option>
+            <option value="18">18 cuotas</option>
+        </select>
 
-    <button class="button" onclick="calcularCuota()" id="mostrar-cuota-button">Mostrar Valor de Cuotas</button>
-    <div id="cuotaResultado" class="result"></div>
-</div>
+        <button class="button" onclick="calcularCuota()" id="mostrar-cuota-button">Mostrar Valor de Cuotas</button>
+        <div id="cuotaResultado" class="result"></div>
+    </div>
+
+    <!-- Contenedor de la herramienta de indiceAnualiz -->
+    <div class="tool-container" id="indiceAnualizado" style="display: visible;">
+        <h2 id="annualize-title">Calcula el Índice Anualizado</h2>
+        <label for="monthlyRate" id="monthly-rate-label">Índice/Tasa Mensual (%)</label>
+        <input type="number" id="monthlyRate" step="0.01" placeholder="Ej: 2.8" />
+        <button class="button" onclick="calculateAnnualizedIndex()" id="calculate-annualized-button">Calcular</button>
+        <div id="annualizedResult" class="result"></div>
+    </div>
+    
+</main>
 
 <footer>
     <p>Powered by Thesseract 2024</p>
@@ -227,97 +106,7 @@
         <a href="https://www.thesseract.com" target="_blank">www.thesseract.com</a>
     </div>
 </footer>
-
-
-<script>
-    const translations = {
-        es: {
-            title: "Calcula el Costo Financiero",
-            compradorSection: "Sección para el Comprador",
-            productoLabel: "Costo del Producto ($)",
-            cuotasLabel: "Cantidad de Cuotas",
-            valorCuotaLabel: "Valor de la Cuota ($)",
-            calcularCFTButton: "Calcular CFT",
-            vendedorSection: "Sección para el Vendedor",
-            precioLabel: "Precio del Producto ($)",
-            tasaLabel: "Tasa de Interés Anual (%)",
-            cuotasDisponiblesLabel: "Cantidad de Cuotas",
-            mostrarCuotaButton: "Mostrar Valor de Cuotas",
-            cftResultLabel: "Costo Financiero Total"
-        },
-        en: {
-            title: "Calculate Financial Cost",
-            compradorSection: "Buyer Section",
-            productoLabel: "Product Cost ($)",
-            cuotasLabel: "Number of Installments",
-            valorCuotaLabel: "Installment Value ($)",
-            calcularCFTButton: "Calculate TFC",
-            vendedorSection: "Seller Section",
-            precioLabel: "Product Price ($)",
-            tasaLabel: "Annual Interest Rate (%)",
-            cuotasDisponiblesLabel: "Number of Installments",
-            mostrarCuotaButton: "Show Installment Value",
-            cftResultLabel: "Total Financing Cost"
-        },
-        de: {
-            title: "Berechnen Sie die Finanzkosten",
-            compradorSection: "Abschnitt für Käufer",
-            productoLabel: "Produktkosten (€)",
-            cuotasLabel: "Anzahl der Raten",
-            valorCuotaLabel: "Ratenwert (€)",
-            calcularCFTButton: "GFK berechnen",
-            vendedorSection: "Abschnitt für Verkäufer",
-            precioLabel: "Produktpreis (€)",
-            tasaLabel: "Jährlicher Zinssatz (%)",
-            cuotasDisponiblesLabel: "Anzahl der Raten",
-            mostrarCuotaButton: "Ratenwert anzeigen",
-            cftResultLabel: "Gesamtkosten für Finanzierung"
-        }
-    };
-
-    let currentLang = 'es';
-
-    function setLanguage(lang) {
-        currentLang = lang;
-        document.getElementById("title").innerText = translations[lang].title;
-        document.getElementById("comprador-section").innerText = translations[lang].compradorSection;
-        document.getElementById("producto-label").innerText = translations[lang].productoLabel;
-        document.getElementById("cuotas-label").innerText = translations[lang].cuotasLabel;
-        document.getElementById("valor-cuota-label").innerText = translations[lang].valorCuotaLabel;
-        document.getElementById("calcular-cft-button").innerText = translations[lang].calcularCFTButton;
-        document.getElementById("vendedor-section").innerText = translations[lang].vendedorSection;
-        document.getElementById("precio-label").innerText = translations[lang].precioLabel;
-        document.getElementById("tasa-label").innerText = translations[lang].tasaLabel;
-        document.getElementById("cuotas-disponibles-label").innerText = translations[lang].cuotasDisponiblesLabel;
-        document.getElementById("mostrar-cuota-button").innerText = translations[lang].mostrarCuotaButton;
-    }
-
-    function calcularCFT() {
-        const costo = parseFloat(document.getElementById("productoCosto").value);
-        const cuotas = parseInt(document.getElementById("cuotasCantidad").value);
-        const valorCuota = parseFloat(document.getElementById("cuotaValor").value);
-        if (costo && cuotas && valorCuota) {
-            const costoTotal = valorCuota * cuotas;
-            const cft = ((costoTotal / costo) - 1) * 100;
-            document.getElementById("cftResultado").innerText = `${translations[currentLang].cftResultLabel}: ${cft.toFixed(2)}%`;
-        } else {
-            document.getElementById("cftResultado").innerText = "Por favor, complete todos los campos.";
-        }
-    }
-
-    function calcularCuota() {
-        const precioProducto = parseFloat(document.getElementById("precioProducto").value);
-        const tasaInteres = parseFloat(document.getElementById("tasaInteres").value) / 100;
-        const cuotas = parseInt(document.getElementById("cuotasDisponibles").value);
-        
-        if (precioProducto && tasaInteres && cuotas) {
-            const cuotaMensual = (precioProducto * (1 + tasaInteres)) / cuotas;
-            document.getElementById("cuotaResultado").innerText = `Valor de la cuota para ${cuotas} cuotas: $${cuotaMensual.toFixed(2)}`;
-        } else {
-            document.getElementById("cuotaResultado").innerText = "Por favor, complete todos los campos.";
-        }
-    }
-</script>
-
+</div>
+<script src="script.js"></script>
 </body>
 </html>
