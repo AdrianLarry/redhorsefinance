@@ -17,14 +17,15 @@ function calcularCuota() {
     const precioProducto = parseFloat(document.getElementById("precioProducto").value);
     const tasaInteres = parseFloat(document.getElementById("tasaInteres").value) / 100;
     const cuotas = parseInt(document.getElementById("cuotasDisponibles").value);
-    
+
     if (precioProducto && tasaInteres && cuotas) {
         const cuotaMensual = (precioProducto * (1 + tasaInteres)) / cuotas;
-        document.getElementById("cuotaResultado").innerText = `Valor de la cuota para ${cuotas} cuotas: $${cuotaMensual.toFixed(2)}`;
+        document.getElementById("cuotaResultado").innerText = `${translations[currentLang].cuotaResultadoLabel} ${cuotas} cuotas: $${cuotaMensual.toFixed(2)}`;
     } else {
-        document.getElementById("cuotaResultado").innerText = "Por favor, complete todos los campos.";
+        document.getElementById("cuotaResultado").innerText = translations[currentLang].completeCampos;
     }
 }
+
 
 
 // Mostrar la herramienta seleccionada
@@ -52,6 +53,7 @@ function showTool() {
 
 // Función de traducción
 function setLanguage(lang) {
+    currentLang = lang; // Asegúrate de actualizar el idioma aquí
     document.getElementById("main-title").innerText = translations[lang].mainTitle;
     document.getElementById("news-title").innerText = translations[lang].newsTitle;
     document.getElementById("comprador-section").innerText = translations[lang].compradorSection;
@@ -68,6 +70,7 @@ function setLanguage(lang) {
     document.getElementById("annualize-title").innerText = translations[lang].annualizetitle;
     document.getElementById("monthly-rate-label").innerText = translations[lang].monthlyratelabel;
     document.getElementById("calculate-annualized-button").innerText = translations[lang].calculateannualizedbutton;
+    
     
     // Reconstruir el select con las opciones traducidas
     const toolSelect = document.getElementById("toolSelect");
@@ -121,7 +124,9 @@ const translations = {
         calculaIndiceAnualizado: "Calcula un Índice Anualizado",
         annualizetitle: "Calcula un Índice Anualizado",
         monthlyratelabel: "Calcula un Índice Anualizado",
-        calculateannualizedbutton: "Calcular"
+        calculateannualizedbutton: "Calcular",
+        cuotaResultadoLabel: "Valor de la cuota para",
+        completeCampos: "Por favor, complete todos los campos."
     },
     en: {
         mainTitle: "Financial Tools",
@@ -142,7 +147,9 @@ const translations = {
         calculaIndiceAnualizado: "Calculate an Annualized Index",
         annualizetitle: "Calculate an Annualized Index",
         monthlyratelabel: "Monthly Index/Rate (%)",
-        calculateannualizedbutton: "calculate"
+        calculateannualizedbutton: "calculate",
+        cuotaResultadoLabel: "Installment value for",
+        completeCampos: "Please fill in all fields."
     },
     de: {
         mainTitle: "Finanzwerkzeuge",
@@ -163,7 +170,9 @@ const translations = {
         calculaIndiceAnualizado: "Berechnen Sie einen annualisierten Index",
         annualizetitle: "Berechnen Sie einen annualisierten Index",
         monthlyratelabel: "Index/Monatsrate (%)",
-        calculateannualizedbutton: "berechnen"
+        calculateannualizedbutton: "berechnen",
+        cuotaResultadoLabel: "Ratenbetrag für",
+        completeCampos: "Bitte füllen Sie alle Felder aus."
     }
 };
 
